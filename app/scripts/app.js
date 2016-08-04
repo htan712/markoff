@@ -1,9 +1,9 @@
 (function() {
-    function config($stateProvider, $locatioProvider) {
+    function config($stateProvider, $locationProvider) {
         $locationProvider
             .html5Mode({
                 enabled: true,
-                requreBase: false
+                requireBase: false
             });
         
         $stateProvider
@@ -15,6 +15,6 @@
     }
     
     angular
-        .module('markOff', ['ui,router', 'firebase'])
+        .module('markOff', ['ui.router', 'firebase'])
         .config(config);
 })();
