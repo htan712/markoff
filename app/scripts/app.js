@@ -21,6 +21,6 @@
     }
     
     angular
-        .module('markOff', ['ui.router', 'firebase'])
+        .module('markOff', ['firebase', 'ui.router'])
         .config(config);
 })();

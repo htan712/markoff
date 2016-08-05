@@ -4,9 +4,9 @@
    
     <form class="form-inline" ng-submit="addTodos()">
         <div class="form-group">
-            <label ng-model="todo">TaskName</label>
-            <input type="text" class="form-control" id="inputTodo" placeholder="Add Task" ng-model="newtodo">
-            <input type="submit" id="submit" ng-disabled="frm.$invalid" value="Submit" />
+            <label>TaskName</label>
+            <input type="text" class="form-control" id="inputTodo" placeholder="Add Task" ng-model="newTodo">
+            <button type="submit" id="submit" ng-disabled="frm.$invalid" value="Submit">Add Task</button>
         </div>
     </form>
     <ul>
