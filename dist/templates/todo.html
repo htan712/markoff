@@ -1,9 +1,17 @@
 <div class="row">
-    <form class="form-inline" ng-submit="addTodo()">
+  
+   <!-- called addTodos -->
+   
+    <form class="form-inline" ng-submit="addTodos()">
         <div class="form-group">
             <label ng-model="todo">TaskName</label>
-            <input type="text" class="form-control" id="inputTodo" placeholder="Add Task">
+            <input type="text" class="form-control" id="inputTodo" placeholder="Add Task" ng-model="newtodo">
+            <input type="submit" id="submit" ng-disabled="frm.$invalid" value="Submit" />
         </div>
-        <button type="submit" class="btn btn-default">Add Task</button>
     </form>
+    <ul>
+        <li ng-repeat="todo in todos">
+            {{todo.title}}
+        </li>
+    </ul>
 </div>
