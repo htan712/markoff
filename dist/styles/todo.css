@@ -1,0 +1,46 @@
+.panel-heading {
+    border-bottom: 1px solid black;
+    font-size: 20px;
+}
+
+.todowrapper {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #858586;
+    width: 750px;
+    background-color: aliceblue;
+}
+
+.todo_form {
+    margin-top: 10px;
+    margin-left: 40px;
+    font-size: 20px;
+}
+
+.show_todo_wrapper {
+    margin-top: 10px;
+    margin-right: auto;
+    text-align: center;
+    list-style: none;
+}
+
+.showtodos {
+    font-size: 20px;
+    color: deepskyblue;
+}
+
+.main_content {
+    width: 750px;
+    height: auto;
+    margin-left: 100px;
+    
+}
+
+
+.todo-button-delete {
+    font-size: 25px;
+    color: rgb(255, 0, 0);
+    border-radius: 50% 50%;
+    margin-bottom: 50px;
+}

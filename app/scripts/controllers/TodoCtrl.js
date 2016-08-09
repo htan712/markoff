@@ -2,13 +2,17 @@
     function TodoCtrl($scope, $firebaseArray) {
                 
         /** I'm not exactly sure how to use firebasearray correctly here */
-//        var ref = new Firebase("markoff-9194b.firebaseapp.com/todo");
-        $scope.todos = $firebaseArray(firebase.database().ref().child("/todo"));;
-        $scope.addTodos = function(){
+        $scope.todos = $firebaseArray(firebase.database().ref().child('/todo'));
+        $scope.addTodo = function(){
             $scope.todos.$add({
-                task: $scope.newTodos
-            });
-        };
+                task: $scope.task,
+                importance: $scope.importance
+            })
+        }
+        $scope.removeTodo = function(todo) { 
+            var index = $scope.todos.indexOf(todo);
+            $scope.todos.$remove(todo);
+        }
         
     }
         angular
