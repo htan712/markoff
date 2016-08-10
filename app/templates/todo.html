@@ -1,32 +1,41 @@
 <div class="row todowrapper">
    <div class="col-md-8 main_content">
-       <form class="form-inline todo_form" ng-submit="addTodo()">   <!-- called addTodos -->
-            <div class="form-group">
-                <label>TaskName</label>
-                <input type="text" class="form-control" placeholder="Add Task" ng-model="task">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+             Add Task
+              <div class="pull-right">
+                  <a class="btn btn-success" ng-click="showTodoForm()" ng-hide="addFormShow"><span class="ion-loop"></span>Add</a>
+                  <a class="btn btn-success" ng-click="hide()" ng-show="addFormShow"><span class="ion-loop"></span>Cancel</a>
+              </div>
+          </div>
+        </div>
+        <div ng-show="addFormShow">
+            <form class="form-inline todo_form"  ng-submit="addTodo()">
+                <label>TaskName:</label>
+                    <input type="text" class="form-control" placeholder="Add Task" required ng-model="todo.task">
                 <label>Importance:</label>
-                <select id="importance" class="form-control" ng-model="importance">
-                    <option value="">Please choose</option>
-                    <option value="Not really">Not Really</option>
-                    <option value="So so">So so</option>
-                    <option value="Important">Important</option>
-                    <option value="Very important">Very Important</option>
-                </select>
-                <button type="submit" id="submit" class="btn btn-success">Add Task</button>
-           </div>
-        </form>
+                    <select id="importance" class="form-control" required ng-model="todo.importance">
+                        <option value="">Please choose</option>
+                        <option value="Not really">Not Really</option>
+                        <option value="Important">Important</option>
+                        <option value="Very important">Very Important</option>
+                    </select>
+               <button type="submit" id="submit" class="btn btn-success">Add Task</button>
+            </form>
+        </div>
         <div class="show_todo_wrapper">
-                <div class="panel panel-default todo_panel">
-                   <div class="panel-heading">
-                       Current Todos
-                    </div>
-                   <div class="panel-body showtodos" ng-repeat="todo in todos"> 
-                       {{todo.task}} | {{todo.importance}}
-                       <div class="pull-right">
-                           <a class="ion-ios-close-outline todo-button-delete" ng-click="removeTodo(todo)"></a>
-                       </div>
-                   </div> 
+            <div class="panel panel-default todo_panel">
+               <div class="panel-heading">
+                   Current Tasks
                 </div>
+               <div class="panel-body showtodos" ng-repeat="todo in todos | filter:{complete: false}"> 
+                   {{todo.task}} | {{todo.importance}}
+                   <div class="pull-right">
+                       <a class="task-button-success" ng-click="complete(todo)"><span class="ion-ios-checkmark-outline"></span></a>
+                       <a class="ion-ios-close-outline todo-button-delete" ng-click="removeTodo(todo)"></a>
+                   </div>
+               </div> 
+            </div>
        </div>
     </div>
 </div>

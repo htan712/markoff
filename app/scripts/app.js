@@ -14,9 +14,15 @@
             })
         $stateProvider
             .state('todo', {
-            url: '/todo',
-            controller: 'TodoCtrl as todo',
-            templateUrl: '/templates/todo.html'
+                url: '/todo',
+                controller: 'TodoCtrl as todo',
+                templateUrl: '/templates/todo.html'
+            })
+        $stateProvider
+            .state('history', {
+                url: '/history',
+                controller: 'HistoryCtrl as history',
+                templateUrl: '/templates/history.html'
             })
     }
     
