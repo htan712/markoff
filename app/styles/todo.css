@@ -52,7 +52,7 @@
     margin-bottom: 50px;
 }
 
-.task-button-success {
+.todo-button-complete {
     font-size: 25px;
     color: rgb(6, 204, 13);
     border-radius: 50% 50%;

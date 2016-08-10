@@ -28,10 +28,11 @@
                <div class="panel-heading">
                    Current Tasks
                 </div>
+                <!-- Looped todos with filter: complete:false !-->
                <div class="panel-body showtodos" ng-repeat="todo in todos | filter:{complete: false}"> 
                    {{todo.task}} | {{todo.importance}}
                    <div class="pull-right">
-                       <a class="task-button-success" ng-click="complete(todo)"><span class="ion-ios-checkmark-outline"></span></a>
+                       <a class="todo-button-complete" ng-click="complete(todo)"><span class="ion-ios-checkmark-outline"></span></a>
                        <a class="ion-ios-close-outline todo-button-delete" ng-click="removeTodo(todo)"></a>
                    </div>
                </div> 
