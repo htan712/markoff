@@ -4,11 +4,14 @@
           <div class="panel-heading">
              Add Task
               <div class="pull-right">
-                  <a class="btn btn-success" ng-click="showTodoForm()" ng-hide="addFormShow"><span class="ion-loop"></span>Add</a>
-                  <a class="btn btn-success" ng-click="hide()" ng-show="addFormShow"><span class="ion-loop"></span>Cancel</a>
+                  <!-- Calling showTodoForm on click event, ng-hide if addFormShow is true-->
+                  <a class="btn btn-success" ng-click="todo.todoService.showTodoForm()" ng-hide="addFormShow"><span class="ion-loop"></span>Add</a>
+                  <!-- Calling hide on click event, ng-show if addFormShow is true -->
+                  <a class="btn btn-success" ng-click="todo.todoService.hide()" ng-show="addFormShow"><span class="ion-loop"></span>Cancel</a>
               </div>
           </div>
         </div>
+        <!-- addFormShow -->
         <div ng-show="addFormShow">
             <form class="form-inline todo_form"  ng-submit="addTodo()">
                 <label>TaskName:</label>
@@ -17,7 +20,7 @@
                     <select id="importance" class="form-control" required ng-model="todo.importance">
                         <option value="">Please choose</option>
                         <option value="Not really">Not Really</option>
-                        <option value="Important">Important</option>
+                        <option value="Important">Important</option>TodoService.
                         <option value="Very important">Very Important</option>
                     </select>
                <button type="submit" id="submit" class="btn btn-success">Add Task</button>

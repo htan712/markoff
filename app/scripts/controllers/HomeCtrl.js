@@ -2,6 +2,7 @@
     function HomeCtrl() {
         this.welcome = "Welcome to MarkItOff";    
         
+        // constants set to element ID
         const Email = document.getElementById('Email');
         const Password = document.getElementById('Password');
         const btnLogin = document.getElementById('btnLogin');
@@ -10,9 +11,9 @@
         
         // Login event
         btnLogin.addEventListener('click', e => {
+            const auth = firebase.auth();
             const email = Email.value;
             const pass = Password.value;
-            const auth = firebase.auth();
             
             const promise = auth.signInWithEmailAndPassword(email, pass);
             promise.catch(e => console.log(e.message));
