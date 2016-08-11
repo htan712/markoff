@@ -1,17 +1,19 @@
-<div class="show_todo_wrapper">
-    <div class="panel panel-default todo_panel">
-        <div class="panel-heading">
-            History
-        </div>
-        <!-- Looped todos with filter: complete:true !-->
-
-        <div class="panel-body showtodos" ng-repeat="todo in todos | filter:{complete: true}"> 
-            {{todo.task}} | {{todo.importance}}
-            <div class="pull-right">
-                <a class="todo-button-incomplete" ng-click="incomplete(todo)"><span class="ion-ios-refresh-outline"></span></a>
-
-                <a class="ion-ios-close-outline todo-button-delete" ng-click="removeTodo(todo)"></a>
+<div class="col-md-8 main_content">
+   <div class="show_todo_wrapper">
+        <div class="panel panel-default todo_panel">
+            <div class="panel-heading">
+                History
             </div>
-        </div> 
+            <!-- Looped todos with filter: complete:true !-->
+
+            <div class="panel-body showtodos" ng-repeat="todo in todos | filter:{complete: true}" ng-style="isComplete(todo)"> 
+                {{todo.task}} | {{todo.importance}}
+                <div class="pull-right">
+                    <a class="todo-button-incomplete" ng-click="incomplete(todo)"><span class="ion-ios-refresh-outline"></span></a>
+
+                    <a class="ion-ios-close-outline todo-button-delete" ng-click="removeTodo(todo)"></a>
+                </div>
+            </div> 
+        </div>
     </div>
 </div>

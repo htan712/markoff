@@ -1,0 +1,15 @@
+.main_content {
+    width: 750px;
+    margin-left: 17%
+        height: auto;
+    border: 2px solid #858586;
+    background-color: aliceblue;
+    position: relative;
+}
+
+.todo-button-incomplete {
+    font-size: 25px;
+    color: rgb(6, 204, 13);
+    border-radius: 50% 50%;
+    margin-bottom: 50px;
+}

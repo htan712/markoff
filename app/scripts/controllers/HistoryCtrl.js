@@ -12,6 +12,14 @@
             $scope.todos.$save(todo);
         }
         
+        $scope.isComplete = function(todo) {
+            if(todo.complete) {
+                return {"text-decoration": "line-through"}
+            } else {
+                return {"text-decoration": "none"}  
+            }
+        }
+        
     }
     
         angular

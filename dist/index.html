@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="/styles/style.css">
     <link rel="stylesheet" href="/styles/home.css">
     <link rel="stylesheet" href="/styles/todo.css">
+    <link rel="stylesheet" href="/styles/history.css">
+
 
     
 </head>
@@ -35,7 +37,7 @@
                     <li><a ui-sref="history">History</a></li>
                     <li><a href="#">Log In</a></li>
                 </ul>
-            </div><!--/.nav-collapse -->
+            </div>
         </div>
     </nav>
 
@@ -54,20 +56,13 @@
     <script src="https://cdn.firebase.com/libs/angularfire/2.0.0/angularfire.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
 
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyDmh1VnxLNQUFTjw53VZyW4-EqQ_Nd3dWI",
-            authDomain: "markoff-9194b.firebaseapp.com",
-            databaseURL: "https://markoff-9194b.firebaseio.com",
-            storageBucket: "markoff-9194b.appspot.com",
-        };
-        firebase.initializeApp(config);
-    </script>
+    <script src="/scripts/firebase.js"></script>
 
     <script src="/scripts/app.js"></script>
     <script src="/scripts/controllers/HomeCtrl.js"></script>
     <script src="/scripts/controllers/TodoCtrl.js"></script>
+    <script src="/scripts/controllers/HistoryCtrl.js"></script>
+
 
     
 </body>
