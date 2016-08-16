@@ -4,23 +4,23 @@
           <div class="panel-heading">
              Add Task
               <div class="pull-right">
-                  <!-- Calling showTodoForm on click event, ng-hide if addFormShow is true-->
-                  <a class="btn btn-success" ng-click="todo.todoService.showTodoForm()" ng-hide="addFormShow"><span class="ion-loop"></span>Add</a>
+                  <!-- Calling showTodoForm on click event, the element will show when addFormShow is false-->
+                  <a class="btn btn-success" ng-click="todo.todoFact.toggleForm()" ng-show="!todo.todoFact.addFormShow"><span class="ion-loop"></span>Add</a>
                   <!-- Calling hide on click event, ng-show if addFormShow is true -->
-                  <a class="btn btn-success" ng-click="todo.todoService.hide()" ng-show="addFormShow"><span class="ion-loop"></span>Cancel</a>
+                  <a class="btn btn-success" ng-click="todo.todoFact.toggleForm()" ng-show="todo.todoFact.addFormShow"><span class="ion-loop"></span>Cancel</a>
               </div>
           </div>
         </div>
         <!-- addFormShow -->
-        <div ng-show="addFormShow">
-            <form class="form-inline todo_form"  ng-submit="addTodo()">
+        <div ng-show="todo.todoFact.addFormShow">
+            <form class="form-inline todo_form"  ng-submit="todoFact.addTodo()">
                 <label>TaskName:</label>
                     <input type="text" class="form-control" placeholder="Add Task" required ng-model="todo.task">
                 <label>Importance:</label>
                     <select id="importance" class="form-control" required ng-model="todo.importance">
                         <option value="">Please choose</option>
                         <option value="Not really">Not Really</option>
-                        <option value="Important">Important</option>TodoService.
+                        <option value="Important">Important</option>
                         <option value="Very important">Very Important</option>
                     </select>
                <button type="submit" id="submit" class="btn btn-success">Add Task</button>
@@ -33,7 +33,7 @@
                 </div>
                 <!-- Looped todos with filter: complete:false !-->
                <div class="panel-body showtodos" ng-repeat="todo in todos | filter:{complete: false}"> 
-                   {{todo.task}} | {{todo.importance}}
+                   {{todo.todoFact.todo.task}} | {{todo.todoFact.todo.importance}}
                    <div class="pull-right">
                        <a class="todo-button-complete" ng-click="complete(todo)"><span class="ion-ios-checkmark-outline"></span></a>
                        <a class="ion-ios-close-outline todo-button-delete" ng-click="removeTodo(todo)"></a>

@@ -1,38 +1,34 @@
 (function() {
-    function TodoService($firebaseArray) {
-        var TodoService = {};
+    function TodoFact($firebaseArray) {
+        var TodoFact = {};
         
         var todos = $firebaseArray(firebase.database().ref().child('/todo'));
 
-        TodoService.addTodo = function(){
-            todos.$add(todo)
+        TodoFact.addTodo = function(){
+            todos.$add(todo);
             todo.complete = false;
-        }
+        };
 
-        TodoService.removeTodo = function(todo) { 
+        TodoFact.removeTodo = function(todo) { 
             var index = $scope.todos.indexOf(todo);
             $scope.todos.$remove(todo);
-        }
+        };
 
-        TodoService.complete = function(todo) {
+        TodoFact.complete = function(todo) {
             todo.complete = true;
             todos.$save(todo);
-        }
+        };
         
-        var addFormShow = false;
+        TodoFact.addFormShow = true;
 
-        TodoService.showTodoForm = function() {
-            addFormShow = true;
-        }
-
-        TodoService.hide = function() {
-            addFormShow = false;
-        }
+        TodoFact.toggleForm = function() {
+            TodoFact.addFormShow = TodoFact.addFormShow === false ? true : false;
+        };
         
-        return TodoService;
+        return TodoFact;
     };
     
     angular
         .module('markOff')
-        .factory('TodoService', ['$firebaseArray', TodoService])   
+        .factory('TodoFact', ['$firebaseArray', TodoFact]);   
 })();

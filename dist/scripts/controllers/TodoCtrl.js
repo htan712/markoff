@@ -1,6 +1,7 @@
 (function() {
-    function TodoCtrl(TodoService) {
-        this.todoService = TodoService;
+    function TodoCtrl(TodoFact) {
+
+        this.todoFact = TodoFact;
         /** I'm not exactly sure how to use firebasearray correctly here */
 //        $scope.todos = $firebaseArray(firebase.database().ref().child('/todo'));
 //        
@@ -29,5 +30,5 @@
     }
         angular
             .module('markOff')
-            .controller('TodoCtrl', ['TodoService', TodoCtrl]);
+            .controller('TodoCtrl', ['TodoFact', TodoCtrl]);
 })();
