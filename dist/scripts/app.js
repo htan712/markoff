@@ -5,7 +5,7 @@
                 enabled: true,
                 requireBase: false
             });
-        
+
         $stateProvider
             .state('home', {
                 url: '/',
@@ -15,7 +15,7 @@
         $stateProvider
             .state('todo', {
                 url: '/todo',
-                controller: 'TodoCtrl as todo',
+                controller: 'TodoCtrl as todoCtrl',
                 templateUrl: '/templates/todo.html'
             })
         $stateProvider
@@ -25,7 +25,7 @@
                 templateUrl: '/templates/history.html'
             })
     }
-    
+
     angular
         .module('markOff', ['firebase', 'ui.router'])
         .config(config);

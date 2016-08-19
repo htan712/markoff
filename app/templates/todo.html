@@ -5,25 +5,25 @@
              Add Task
               <div class="pull-right">
                   <!-- Calling showTodoForm on click event, the element will show when addFormShow is false-->
-                  <a class="btn btn-success" ng-click="todo.todoFact.toggleForm()" ng-show="!todo.todoFact.addFormShow"><span class="ion-loop"></span>Add</a>
+                  <a class="btn btn-success" ng-click="todoCtrl.todoFactory.toggleForm()" ng-show="!todoCtrl.todoFactory.addFormShow"><span class="ion-loop"></span>Add</a>
                   <!-- Calling hide on click event, ng-show if addFormShow is true -->
-                  <a class="btn btn-success" ng-click="todo.todoFact.toggleForm()" ng-show="todo.todoFact.addFormShow"><span class="ion-loop"></span>Cancel</a>
+                  <a class="btn btn-danger" ng-click="todoCtrl.todoFactory.toggleForm()" ng-show="todoCtrl.todoFactory.addFormShow"><span class="ion-loop"></span>Cancel</a>
               </div>
           </div>
         </div>
         <!-- addFormShow -->
-        <div ng-show="todo.todoFact.addFormShow">
-            <form class="form-inline todo_form"  ng-submit="todoFact.addTodo()">
+        <div ng-show="todoCtrl.todoFactory.addFormShow">
+            <form class="form-inline todo_form"  ng-submit="todoCtrl.submitTodoForm(todoForm)">
                 <label>TaskName:</label>
-                    <input type="text" class="form-control" placeholder="Add Task" required ng-model="todo.task">
+                    <input type="text" class="form-control" placeholder="Add Task" required ng-model='todoForm.task'>
                 <label>Importance:</label>
-                    <select id="importance" class="form-control" required ng-model="todo.importance">
+                    <select id="importance" class="form-control" required ng-model='todoForm.importance'>
                         <option value="">Please choose</option>
                         <option value="Not really">Not Really</option>
                         <option value="Important">Important</option>
                         <option value="Very important">Very Important</option>
                     </select>
-               <button type="submit" id="submit" class="btn btn-success">Add Task</button>
+               <button type="submit" id="submit" class="btn btn-primary">Add Task</button>
             </form>
         </div>
         <div class="show_todo_wrapper">
@@ -32,13 +32,13 @@
                    Current Tasks
                 </div>
                 <!-- Looped todos with filter: complete:false !-->
-               <div class="panel-body showtodos" ng-repeat="todo in todos | filter:{complete: false}"> 
-                   {{todo.todoFact.todo.task}} | {{todo.todoFact.todo.importance}}
+               <div class="panel-body showtodos" ng-repeat="todo in todoCtrl.todos | filter:{complete: false}">
+                   {{todo.task}} | {{todo.importance}}
                    <div class="pull-right">
-                       <a class="todo-button-complete" ng-click="complete(todo)"><span class="ion-ios-checkmark-outline"></span></a>
-                       <a class="ion-ios-close-outline todo-button-delete" ng-click="removeTodo(todo)"></a>
+                       <a class="todo-button-complete" ng-click="todoCtrl.todoFactory.complete(todo)"><span class="ion-ios-checkmark-outline"></span></a>
+                       <a class="ion-ios-close-outline todo-button-delete" ng-click="todoCtrl.todoFactory.removeTodo(todo)"></a>
                    </div>
-               </div> 
+               </div>
             </div>
        </div>
     </div>
