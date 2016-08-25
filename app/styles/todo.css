@@ -65,7 +65,6 @@ input.ng-touched.ng-invalid {
     font-family: 'Indie Flower', cursive;
     font-size: 24px;
     color: deepskyblue;
-    border-bottom: 1px solid #EAEAEA;
 }
 
 .todo-button-delete {

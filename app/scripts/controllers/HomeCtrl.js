@@ -37,17 +37,15 @@
         
         firebase.auth().onAuthStateChanged(firebaseUser => {
             if(firebaseUser) {
-                console.log(firebaseUser);
                 btnLogout.classList.remove('hide');
             } else {
-                console.log('not logged in');
                 btnLogout.classList.add('hide');
             }
         });
         
-        this.currentUser = false;
+        this.currentUser;
         this.authData = function(){
-            self.currentUser = firebase.auth().currentUser;
+            self.currentUser = firebase.auth().currentUser.email;
         };
 
 

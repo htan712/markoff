@@ -1,5 +1,6 @@
 (function() {
     function TodoCtrl(TodoFactory) {
+        var self = this;
         this.todoFactory = TodoFactory;
         this.todos = TodoFactory.getAllTodos();
 
@@ -8,14 +9,17 @@
             form.userId = firebase.auth().currentUser.email;
             TodoFactory.createTodo(angular.copy(form), this.todo);
         };
+        this.currentUser;
         
-        this.currentUser = function() {
-            if(firebase.auth().currentUser !== null) {
-                firebase.auth().currentUser.email
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                self.currentUser = firebase.auth().currentUser.email;
+                console.log(firebase.auth().currentUser.email + " has signed In");
             } else {
-                console.log("Not signed In");
+                console.log("User not signed in: Calling from authstatechanged");
             }
-        }
+        });
+        
 
         /** I'm not exactly sure how to use firebasearray correctly here */
 //        $scope.todos = $firebaseArray(firebase.database().ref().child('/todo'));
