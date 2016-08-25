@@ -4,10 +4,18 @@
         this.todos = TodoFactory.getAllTodos();
 
         this.submitTodoForm = function(form) {
-          form.complete = false;
-          TodoFactory.createTodo(angular.copy(form), this.todo);
+            form.complete = false;
+            form.userId = firebase.auth().currentUser.email;
+            TodoFactory.createTodo(angular.copy(form), this.todo);
+        };
+        
+        this.currentUser = function() {
+            if(firebase.auth().currentUser !== null) {
+                firebase.auth().currentUser.email
+            } else {
+                console.log("Not signed In");
+            }
         }
-
 
         /** I'm not exactly sure how to use firebasearray correctly here */
 //        $scope.todos = $firebaseArray(firebase.database().ref().child('/todo'));

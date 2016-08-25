@@ -1,10 +1,13 @@
 <div class="home_container">
-    <h1>{{ home.welcome }}</h1>
+    <h1>{{ homeCtrl.welcome }}</h1>
+    <div class="sign-in" ng-show="!homeCtrl.currentUser">
+        <h4> You must sign in to continue.</h4>
+    </div>
     <div class="login-container">
         <input id="Email" type="email" placeholder="Email">
         <input id="Password" type="password" placeholder="Password">
-        <button id="btnLogin" class="btn btn-action"> Log in </button>
+        <button id="btnLogin" class="btn btn-action" ng-click="homeCtrl.authData()"> Log in </button>
         <button id="btnSignUp" class="btn btn-secondary"> Sign Up </button>
-        <button id="btnLogout" class="btn btn-action hide"> Log Out </button>
+        <button id="btnLogout" class="btn btn-action hide" ng-click="homeCtrl.authData()"> Log Out </button>
     </div>
 </div>

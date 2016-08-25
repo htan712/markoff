@@ -1,36 +1,60 @@
+/*
+input.ng-touched.ng-invalid {
+    border: 1px solid red;
+}
+*/
+.panel {
+    border-radius: 15px 50px;
+    margin: 10px;
+}
+
+.panel-default .panel-heading {
+    color: limegreen;
+    border-radius: 15px 50px;
+
+}
+
 .panel-heading {
     border-bottom: 1px solid black;
-    font-family: "Droid Sans Mono";
-    font-size: 24px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 28px;
     font-style: italic;
     font-variant: normal;
     font-weight: 500;
     line-height: 26.4px;
+    border-radius: 15px 55px;
 }
 
-.panel-default {
-    margin-top: 10px;
-}
+
+
+
 
 .todowrapper {
     margin-top: 20px;
 }
 
-.main_content {
-    width: 750px;
-    margin-left: 17%
+.main-content {
+    width: 875px;
+    margin-top: 20px;
+    margin-left: 11%;
     height: auto;
     border: 2px solid #858586;
     background-color: aliceblue;
     position: relative;
 }
 
-
+.todo-form {
+    margin: 15px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 22px;
+}
+/*
 .todo_form {
     margin-top: 10px;
     margin-left: 40px;
     font-size: 20px;
 }
+*/
 
 .show_todo_wrapper {
     margin-top: 10px;
@@ -38,9 +62,8 @@
 }
 
 .showtodos {
-    font-family: Quicksand;
-/*    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
-    font-size: 18px;
+    font-family: 'Indie Flower', cursive;
+    font-size: 24px;
     color: deepskyblue;
     border-bottom: 1px solid #EAEAEA;
 }
@@ -57,9 +80,22 @@
     color: rgb(6, 204, 13);
     border-radius: 50% 50%;
     margin-bottom: 50px;
+    margin-right: 10px;
+}
+
+.utility-buttons {
+    width: 80px;
 }
 
 .heading {
     margin-top: 10px;
     padding-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+}
+
+th {
+    color: limegreen;
 }

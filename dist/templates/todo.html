@@ -1,45 +1,73 @@
-<div class="row todowrapper">
-   <div class="col-md-8 main_content">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-             Add Task
-              <div class="pull-right">
-                  <!-- Calling showTodoForm on click event, the element will show when addFormShow is false-->
-                  <a class="btn btn-success" ng-click="todoCtrl.todoFactory.toggleForm()" ng-show="!todoCtrl.todoFactory.addFormShow"><span class="ion-loop"></span>Add</a>
-                  <!-- Calling hide on click event, ng-show if addFormShow is true -->
-                  <a class="btn btn-danger" ng-click="todoCtrl.todoFactory.toggleForm()" ng-show="todoCtrl.todoFactory.addFormShow"><span class="ion-loop"></span>Cancel</a>
-              </div>
-          </div>
+ <div class="main-content">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+           Add Task
+            <div class="pull-right">
+                <!-- Calling showTodoForm on click event, the element will show when addFormShow is false-->
+                <a class="btn btn-success" ng-click="todoCtrl.todoFactory.toggleForm()" ng-show="!todoCtrl.todoFactory.addFormShow"><span class="ion-loop"></span>Add</a>
+                <!-- Calling hide on click event, ng-show if addFormShow is true -->
+                <a class="btn btn-danger" ng-click="todoCtrl.todoFactory.toggleForm()" ng-show="todoCtrl.todoFactory.addFormShow"><span class="ion-loop"></span>Cancel</a>
+            </div>
         </div>
-        <!-- addFormShow -->
-        <div ng-show="todoCtrl.todoFactory.addFormShow">
-            <form class="form-inline todo_form"  ng-submit="todoCtrl.submitTodoForm(todoForm)">
-                <label>TaskName:</label>
-                    <input type="text" class="form-control" placeholder="Add Task" required ng-model='todoForm.task'>
-                <label>Importance:</label>
+      <!-- addFormShow -->
+      <div class="todo-form panel-body" ng-show="todoCtrl.todoFactory.addFormShow">
+          <form class="form-inline todo_form"  name="addTodoForm" ng-submit="todoCtrl.submitTodoForm(todoForm)">
+            <div class="row">
+                <div class="col-md-5" ng-class="{'has-error': addTodoForm.taskname.$touched && addTodoForm.taskname.$invalid, 'has-success': addTodoForm.taskname.$touched && addTodoForm.taskname.$valid}">
+                    <label class="control-label">TaskName:</label>
+                    <input type="text" class="form-control" placeholder="Add Task" required name="taskname" ng-model='todoForm.task' ng-minlength="6" ng-maxlength="40">
+                        <p class="help-block" ng-show="addTodoForm.$error.minlength">
+                            Must have at least 6 characters
+                        </p>
+                        <p class="help-block" ng-show="addTodoForm.$error.maxlength">
+                            Task name is too long
+                        </p>
+                </div>
+                <div class="col-md-5">
+                    <label>Importance:</label>
                     <select id="importance" class="form-control" required ng-model='todoForm.importance'>
                         <option value="">Please choose</option>
                         <option value="Not really">Not Really</option>
                         <option value="Important">Important</option>
                         <option value="Very important">Very Important</option>
                     </select>
-               <button type="submit" id="submit" class="btn btn-primary">Add Task</button>
-            </form>
-        </div>
-        <div class="show_todo_wrapper">
-            <div class="panel panel-default todo_panel">
-               <div class="panel-heading">
-                   Current Tasks
                 </div>
-                <!-- Looped todos with filter: complete:false !-->
-               <div class="panel-body showtodos" ng-repeat="todo in todoCtrl.todos | filter:{complete: false}">
-                   {{todo.task}} | {{todo.importance}}
-                   <div class="pull-right">
-                       <a class="todo-button-complete" ng-click="todoCtrl.todoFactory.complete(todo)"><span class="ion-ios-checkmark-outline"></span></a>
-                       <a class="ion-ios-close-outline todo-button-delete" ng-click="todoCtrl.todoFactory.removeTodo(todo)"></a>
-                   </div>
-               </div>
+                <div class="col-md-2">
+                    <button type="submit" id="submit" class="btn btn-success">Add Task</button>
+                </div>
             </div>
-       </div>
-    </div>
-</div>
+          </form>
+      </div>
+     </div>
+      <div class="show_todo_wrapper">
+          <div class="panel panel-default todo_panel">
+             <div class="panel-heading">
+                 Current Tasks
+              </div>
+              <!-- Looped todos with filter: complete:false !-->
+             <div class="panel-body showtodos">
+                 <table class="table table-hover .table-striped">
+                     <thead>
+                         <tr>
+                             <th>Task Name</th>
+                             <th>Importance</th>
+                             <th>User</th>
+                             <th></th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         <tr ng-repeat="todo in todoCtrl.todos | filter:{complete: false, userId: currentUser()}">
+                             <td>{{todo.task}}</td>
+                             <td>{{todo.importance}}</td>
+                             <td>{{todo.userId}}</td>
+                             <td class="utility-buttons">
+                                 <a class="todo-button-complete ion-ios-checkmark-outline" ng-click="todoCtrl.todoFactory.complete(todo)"></a>
+                                 <a class="todo-button-delete ion-ios-close-outline" ng-click="todoCtrl.todoFactory.removeTodo(todo)"></a>
+                             </td>
+                         </tr>
+                     </tbody>
+                 </table>
+             </div>
+          </div>
+     </div>
+  </div>

@@ -1,19 +1,29 @@
 <div class="col-md-8 main_content">
-   <div class="show_todo_wrapper">
-        <div class="panel panel-default todo_panel">
-            <div class="panel-heading">
-                History
-            </div>
-            <!-- Looped todos with filter: complete:true !-->
-
-            <div class="panel-body showtodos" ng-repeat="todo in todos | filter:{complete: true}" ng-style="isComplete(todo)"> 
-                {{todo.task}} | {{todo.importance}}
-                <div class="pull-right">
-                    <a class="todo-button-incomplete" ng-click="incomplete(todo)"><span class="ion-ios-refresh-outline"></span></a>
-
-                    <a class="ion-ios-close-outline todo-button-delete" ng-click="removeTodo(todo)"></a>
-                </div>
-            </div> 
-        </div>
-    </div>
+  <div class="panel panel-default todo_panel">
+      <div class="panel-heading">
+          History
+      </div>
+      <!-- Looped todos with filter: complete:true !-->
+      <div class="panel-body showtodos">
+        <table class="table table-hover .table-striped">
+          <thead>
+            <tr>
+                <th>Task Name</th>
+                <th>Importance</th>
+                <th></th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr ng-repeat="todo in todos | filter:{complete: true}" ng-style="isComplete(todo)">
+                  <td>{{todo.task}}</td>
+                  <td>{{todo.importance}}</td>
+                  <td class="utility-buttons">
+                      <a class="todo-button-incomplete ion-ios-refresh-outline" ng-click="incomplete(todo)"></a>
+                      <a class="todo-button-delete ion-ios-close-outline" ng-click="removeTodo(todo)"></a>
+                  </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
 </div>

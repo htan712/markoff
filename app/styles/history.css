@@ -1,7 +1,8 @@
 .main_content {
     width: 750px;
-    margin-left: 17%
-        height: auto;
+    margin-top: 10px;
+    margin-left: 17%;
+    height: auto;
     border: 2px solid #858586;
     background-color: aliceblue;
     position: relative;
@@ -12,4 +13,16 @@
     color: rgb(6, 204, 13);
     border-radius: 50% 50%;
     margin-bottom: 50px;
+    margin-right: 10px;
+}
+
+.todo-button-delete {
+    font-size: 25px;
+    color: rgb(255, 0, 0);
+    border-radius: 50% 50%;
+    margin-bottom: 50px;
+}
+
+.utility-buttons {
+    width: 80px;
 }

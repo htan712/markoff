@@ -9,14 +9,14 @@
           return todos;
         }
         TodoFactory.createTodo = function(todo, todoList){
-            todos.$add(todo);
+            todos.$add(todo)
             todoList = todos;
-            return todoList;
+            // return todoList;
         };
 
         TodoFactory.removeTodo = function(todo) {
-            var index = $scope.todos.indexOf(todo);
-            $scope.todos.$remove(todo);
+            todos.$remove(todo);
+            // $scope.todos.$remove(todo);
         };
 
         TodoFactory.complete = function(todo) {
