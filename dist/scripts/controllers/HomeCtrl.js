@@ -35,19 +35,19 @@
             firebase.auth().signOut();
         })
         
+        this.currentUser;
+
         firebase.auth().onAuthStateChanged(firebaseUser => {
             if(firebaseUser) {
+                console.log(firebase.auth().currentUser.email);
                 btnLogout.classList.remove('hide');
             } else {
+                console.log("User logged out")
                 btnLogout.classList.add('hide');
             }
         });
         
-        this.currentUser;
-        this.authData = function(){
-            self.currentUser = firebase.auth().currentUser.email;
-        };
-
+        
 
     }
     angular

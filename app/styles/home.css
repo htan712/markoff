@@ -5,9 +5,29 @@ body {
     padding: 40px 15px;
     text-align: center;
 }
-.home_container {
-    margin: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 800px;
+
+.home-container .container {
+    margin-top: 100px;
 }
+
+#loginbox {
+    margin-top:50px;
+}
+
+.welcome {
+    margin-left: 30%;
+}
+
+.welcome-user{
+    margin-left: 30%;
+}
+
+/*
+.forgot-password {
+    float: right;
+    font-size: 80%;
+    position: relative;
+    top: -10px;
+}
+*/
+
