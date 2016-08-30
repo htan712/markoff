@@ -19,6 +19,16 @@
                 return {"text-decoration": "none"}  
             }
         }
+        $scope.currentUser;
+
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                $scope.currentUser = firebase.auth().currentUser.email;
+                console.log(firebase.auth().currentUser.email + " has signed In");
+            } else {
+                console.log("User not signed in: Calling from authstatechanged");
+            }
+        });
         
     }
     

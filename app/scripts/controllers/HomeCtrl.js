@@ -1,8 +1,6 @@
 (function() {
-    function HomeCtrl() {
-        var self = this;
-        this.welcome = "Welcome to MarkItOff";    
-        
+    function HomeCtrl($location, $window) {
+        var self = this;        
         // constants set to element ID
         const Email = document.getElementById('Email');
         const Password = document.getElementById('Password');
@@ -21,7 +19,6 @@
         });
         
         btnSignUp.addEventListener('click', e => {
-            
             // TODO: check 4 real email
             const email = Email.value;
             const pass = Password.value;
@@ -35,7 +32,7 @@
             firebase.auth().signOut();
         })
         
-        this.currentUser;
+        window.currentUser;
 
         firebase.auth().onAuthStateChanged(firebaseUser => {
             if(firebaseUser) {
@@ -52,5 +49,5 @@
     }
     angular
         .module('markOff')
-        .controller('HomeCtrl', HomeCtrl);
+        .controller('HomeCtrl', ['$location', '$window', HomeCtrl]);
 })();

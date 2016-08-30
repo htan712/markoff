@@ -1,14 +1,8 @@
-.main_content {
-    width: 750px;
-    margin-top: 10px;
-    margin-left: 17%;
-    height: auto;
-    border: 2px solid #858586;
-    background-color: aliceblue;
-    position: relative;
+.history-wrapper {
+    margin-top: 15px;
 }
 
-.todo-button-incomplete {
+.history-wrapper .todo-button-incomplete {
     font-size: 25px;
     color: rgb(6, 204, 13);
     border-radius: 50% 50%;
@@ -16,13 +10,31 @@
     margin-right: 10px;
 }
 
-.todo-button-delete {
+.history-wrapper .todo-button-delete {
     font-size: 25px;
     color: rgb(255, 0, 0);
     border-radius: 50% 50%;
     margin-bottom: 50px;
 }
 
-.utility-buttons {
-    width: 80px;
+.history-wrapper .panel-heading {
+    font-family: 'Indie Flower', cursive;
+    font-size: 28px;
+    font-style: italic;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 26.4px;
+    border-radius: 25px;
+    color: limegreen;
+}
+
+.history-wrapper .panel-body {
+    background: url(../assets/images/postednotebackground.png);
+    border-radius: 25px;
+}
+
+.history-wrapper .show-history {
+    font-family: 'Indie Flower', cursive;
+    font-size: 24px;
+    color: deepskyblue;
 }

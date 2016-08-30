@@ -16,13 +16,13 @@
             .state('todo', {
                 url: '/todo',
                 controller: 'TodoCtrl as todoCtrl',
-                templateUrl: '/templates/todo.html'
+                templateUrl: '/templates/todo.html',
             })
         $stateProvider
             .state('history', {
                 url: '/history',
                 controller: 'HistoryCtrl as history',
-                templateUrl: '/templates/history.html'
+                templateUrl: '/templates/history.html',
             })
     }
 

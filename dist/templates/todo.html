@@ -1,73 +1,70 @@
- <div class="main-content">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-           Add Task
-            <div class="pull-right">
-                <!-- Calling showTodoForm on click event, the element will show when addFormShow is false-->
-                <a class="btn btn-success" ng-click="todoCtrl.todoFactory.toggleForm()" ng-show="!todoCtrl.todoFactory.addFormShow"><span class="ion-loop"></span>Add</a>
-                <!-- Calling hide on click event, ng-show if addFormShow is true -->
-                <a class="btn btn-danger" ng-click="todoCtrl.todoFactory.toggleForm()" ng-show="todoCtrl.todoFactory.addFormShow"><span class="ion-loop"></span>Cancel</a>
-            </div>
+ <div class="container todo-wrapper">
+     <div class="panel panel-heading" ng-show="!todoCtrl.todoFactory.addFormShow">
+       Tasks
+        <div class="pull-right">
+            <a class="btn btn-success" ng-click="todoCtrl.todoFactory.toggleForm()" ng-show="!todoCtrl.todoFactory.addFormShow"><span class="ion-loop"></span>Add</a>
         </div>
+    </div>
+    <div class="panel panel-heading" ng-show="todoCtrl.todoFactory.addFormShow">
+        Add a task
+        <div class="pull-right">
+            <a class="btn btn-danger" ng-click="todoCtrl.todoFactory.toggleForm()" ng-show="todoCtrl.todoFactory.addFormShow"><span class="ion-loop"></span>Cancel</a>
+        </div>
+    </div>
       <!-- addFormShow -->
-      <div class="todo-form panel-body" ng-show="todoCtrl.todoFactory.addFormShow">
-          <form class="form-inline todo_form"  name="addTodoForm" ng-submit="todoCtrl.submitTodoForm(todoForm)">
-            <div class="row">
-                <div class="col-md-5" ng-class="{'has-error': addTodoForm.taskname.$touched && addTodoForm.taskname.$invalid, 'has-success': addTodoForm.taskname.$touched && addTodoForm.taskname.$valid}">
+    <div ng-show="todoCtrl.todoFactory.addFormShow">
+        <div class="panel-body">
+            <form name="addTodoForm" ng-submit="todoCtrl.submitTodoForm(todoForm)">
+                <div class="form-group" ng-class="{'has-error': addTodoForm.taskname.$touched && addTodoForm.taskname.$invalid, 'has-success': addTodoForm.taskname.$touched && addTodoForm.taskname.$valid}">
                     <label class="control-label">TaskName:</label>
                     <input type="text" class="form-control" placeholder="Add Task" required name="taskname" ng-model='todoForm.task' ng-minlength="6" ng-maxlength="40">
-                        <p class="help-block" ng-show="addTodoForm.$error.minlength">
-                            Must have at least 6 characters
-                        </p>
-                        <p class="help-block" ng-show="addTodoForm.$error.maxlength">
-                            Task name is too long
-                        </p>
+                    <p class="help-block" ng-show="addTodoForm.$error.minlength">
+                        Must have at least 6 characters
+                    </p>
+                    <p class="help-block" ng-show="addTodoForm.$error.maxlength">
+                        Task name is too long
+                    </p>
                 </div>
-                <div class="col-md-5">
-                    <label>Importance:</label>
-                    <select id="importance" class="form-control" required ng-model='todoForm.importance'>
+                   
+                <div class="form-group" ng-class="{'has-error': addTodoForm.importance.$touched && addTodoForm.importance.$invalid, 'has-success': addTodoForm.importance.$touched && addTodoForm.importance.$valid}">
+                    <label class="control-label">Priority:</label>
+                    <select id="importance" class="form-control" required name="importance" ng-model='todoForm.importance'>
                         <option value="">Please choose</option>
                         <option value="Not really">Not Really</option>
                         <option value="Important">Important</option>
                         <option value="Very important">Very Important</option>
                     </select>
                 </div>
-                <div class="col-md-2">
-                    <button type="submit" id="submit" class="btn btn-success">Add Task</button>
+                <div class="form-group">
+                    <button type="submit" id="submit" class="btn btn-success" ng-disabled="addTodoForm.$invalid">Add Task</button>
                 </div>
-            </div>
-          </form>
-      </div>
-     </div>
-      <div class="show_todo_wrapper">
-          <div class="panel panel-default todo_panel">
-             <div class="panel-heading">
-                 Current Tasks
-              </div>
+            </form>
+        </div> 
+    </div> 
+    <div class="show-todo-wrapper">
               <!-- Looped todos with filter: complete:false !-->
-             <div class="panel-body showtodos">
-                 <table class="table table-hover .table-striped">
-                     <thead>
-                         <tr>
-                             <th>Task Name</th>
-                             <th>Importance</th>
-                             <th>User</th>
-                             <th></th>
-                         </tr>
-                     </thead>
-                     <tbody>
-                         <tr ng-repeat="todo in todoCtrl.todos | filter:{complete: false, userId: todoCtrl.currentUser}">
-                             <td>{{todo.task}}</td>
-                             <td>{{todo.importance}}</td>
-                             <td>{{todo.userId}}</td>
-                             <td class="utility-buttons">
-                                 <a class="todo-button-complete ion-ios-checkmark-outline" ng-click="todoCtrl.todoFactory.complete(todo)"></a>
-                                 <a class="todo-button-delete ion-ios-close-outline" ng-click="todoCtrl.todoFactory.removeTodo(todo)"></a>
-                             </td>
-                         </tr>
-                     </tbody>
-                 </table>
-             </div>
-          </div>
-     </div>
-  </div>
+        <div class="panel-body showtodos">
+            <table class="table table-hover .table-striped">
+                <thead>
+                    <tr>
+                        <th>Task Name</th>
+                        <th>Importance</th>
+                        <th>User</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="fadeout" ng-repeat="todo in todoCtrl.todos | filter:{complete: false, userId: todoCtrl.currentUser}">
+                        <td>{{todo.task}}</td>
+                        <td>{{todo.importance}}</td>
+                        <td>{{todo.userId}}</td>
+                        <td class="utility-buttons">
+                            <a class="todo-button-complete ion-ios-checkmark-outline" ng-click="todoCtrl.todoFactory.complete(todo)"></a>
+                             <a class="todo-button-delete ion-ios-close-outline" ng-click="todoCtrl.todoFactory.removeTodo(todo)"></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

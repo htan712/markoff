@@ -1,49 +1,31 @@
-/*
-input.ng-touched.ng-invalid {
-    border: 1px solid red;
-}
-*/
-.panel {
-    border-radius: 15px 50px;
-    margin: 10px;
+body {
+    background: url(../assets/images/markoffBackground.png) no-repeat center center fixed;
+    background-size: cover;
+    
 }
 
-.panel-default .panel-heading {
-    color: limegreen;
-    border-radius: 15px 50px;
-
+.todo-wrapper {
+    margin-top: 15px;
 }
 
-.panel-heading {
-    border-bottom: 1px solid black;
+.todo-wrapper .panel-heading {
     font-family: 'Indie Flower', cursive;
     font-size: 28px;
     font-style: italic;
     font-variant: normal;
     font-weight: 500;
     line-height: 26.4px;
-    border-radius: 15px 55px;
+    border-radius: 25px;
+    color: limegreen;
 }
 
+.todo-wrapper .panel-body {
+    background: url(../assets/images/postednotebackground.png);
+    border-radius: 25px;
 
-
-
-
-.todowrapper {
-    margin-top: 20px;
 }
 
-.main-content {
-    width: 875px;
-    margin-top: 20px;
-    margin-left: 11%;
-    height: auto;
-    border: 2px solid #858586;
-    background-color: aliceblue;
-    position: relative;
-}
-
-.todo-form {
+.todo-wrapper .todo-form {
     margin: 15px;
     font-family: 'Indie Flower', cursive;
     font-size: 22px;
@@ -56,25 +38,25 @@ input.ng-touched.ng-invalid {
 }
 */
 
-.show_todo_wrapper {
+.todo-wrapper .show-todo-wrapper {
     margin-top: 10px;
     margin-right: auto;
 }
 
-.showtodos {
+.todo-wrapper .showtodos {
     font-family: 'Indie Flower', cursive;
     font-size: 24px;
     color: deepskyblue;
 }
 
-.todo-button-delete {
+.todo-wrapper .todo-button-delete {
     font-size: 25px;
     color: rgb(255, 0, 0);
     border-radius: 50% 50%;
     margin-bottom: 50px;
 }
 
-.todo-button-complete {
+.todo-wrapper .todo-button-complete {
     font-size: 25px;
     color: rgb(6, 204, 13);
     border-radius: 50% 50%;
