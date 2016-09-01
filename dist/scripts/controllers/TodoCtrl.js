@@ -9,21 +9,14 @@
             form.userId = firebase.auth().currentUser.email;
             TodoFactory.createTodo(angular.copy(form), this.todo);
         };
-        
+        this.currentUser;
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
                 self.currentUser = firebase.auth().currentUser.email;
                 console.log(firebase.auth().currentUser.email + " has signed In");
             } else {
-                console.log("User not signed in: Calling from authstatechanged");
+                console.log("User not signed in: Calling from todoCtrl");
             }
-        });
-        
-
-        $(document).ready(function() {
-            $(".todo-button-complete").click(function(){
-                $(".fadeout").fadeOut()
-            });
         });
     }
         angular

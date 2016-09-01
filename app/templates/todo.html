@@ -1,16 +1,20 @@
  <div class="container todo-wrapper">
-     <div class="panel panel-heading" ng-show="!todoCtrl.todoFactory.addFormShow">
+     <div class="panel panel-heading" ng-show="!todoCtrl.todoFactory.addFormShow && todoCtrl.currentUser">
        Tasks
         <div class="pull-right">
             <a class="btn btn-success" ng-click="todoCtrl.todoFactory.toggleForm()" ng-show="!todoCtrl.todoFactory.addFormShow"><span class="ion-loop"></span>Add</a>
         </div>
     </div>
-    <div class="panel panel-heading" ng-show="todoCtrl.todoFactory.addFormShow">
+     <div class="panel panel-heading" ng-show="todoCtrl.todoFactory.addFormShow && todoCtrl.currentUser">
         Add a task
         <div class="pull-right">
             <a class="btn btn-danger" ng-click="todoCtrl.todoFactory.toggleForm()" ng-show="todoCtrl.todoFactory.addFormShow"><span class="ion-loop"></span>Cancel</a>
         </div>
     </div>
+    <div class="panel panel-heading text-center" id="notsignedin" ng-show="!todoCtrl.currentUser">
+         Please Sign in to use the app.
+    </div>
+     
       <!-- addFormShow -->
     <div ng-show="todoCtrl.todoFactory.addFormShow">
         <div class="panel-body">
@@ -42,7 +46,6 @@
         </div> 
     </div> 
     <div class="show-todo-wrapper">
-              <!-- Looped todos with filter: complete:false !-->
         <div class="panel-body showtodos">
             <table class="table table-hover .table-striped">
                 <thead>
@@ -54,11 +57,13 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Looped todos with filter: complete:false and userId !-->
+
                     <tr class="fadeout" ng-repeat="todo in todoCtrl.todos | filter:{complete: false, userId: todoCtrl.currentUser}">
                         <td>{{todo.task}}</td>
                         <td>{{todo.importance}}</td>
                         <td>{{todo.userId}}</td>
-                        <td class="utility-buttons">
+                        <td class="utility-buttons" ng-hide="!todoCtrl.currentUser">
                             <a class="todo-button-complete ion-ios-checkmark-outline" ng-click="todoCtrl.todoFactory.complete(todo)"></a>
                              <a class="todo-button-delete ion-ios-close-outline" ng-click="todoCtrl.todoFactory.removeTodo(todo)"></a>
                         </td>

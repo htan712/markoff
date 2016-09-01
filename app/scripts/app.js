@@ -25,8 +25,10 @@
                 templateUrl: '/templates/history.html',
             })
     }
+    
+
 
     angular
-        .module('markOff', ['firebase', 'ui.router'])
+        .module('markOff', ['firebase', 'ui.router', 'ngMessages'])
         .config(config);
 })();

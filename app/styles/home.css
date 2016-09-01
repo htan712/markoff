@@ -22,6 +22,9 @@ body {
     margin-left: 30%;
 }
 
+#signedIn {
+    display: none;
+}
 /*
 .forgot-password {
     float: right;
