@@ -22,6 +22,10 @@ body {
     margin-left: 30%;
 }
 
+.help-block {
+    color: red;
+}
+
 #signedIn {
     display: none;
 }

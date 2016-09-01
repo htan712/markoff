@@ -9,6 +9,7 @@
         
         $scope.incomplete = function(todo) {
             todo.complete = false;
+            todo.status = 'active';
             $scope.todos.$save(todo);
         }
         

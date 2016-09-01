@@ -52,6 +52,7 @@
                     <tr>
                         <th>Task Name</th>
                         <th>Importance</th>
+                        <th>Status</th>
                         <th>User</th>
                         <th></th>
                     </tr>
@@ -62,6 +63,7 @@
                     <tr class="fadeout" ng-repeat="todo in todoCtrl.todos | filter:{complete: false, userId: todoCtrl.currentUser}">
                         <td>{{todo.task}}</td>
                         <td>{{todo.importance}}</td>
+                        <td>{{todo.status}}</td>
                         <td>{{todo.userId}}</td>
                         <td class="utility-buttons" ng-hide="!todoCtrl.currentUser">
                             <a class="todo-button-complete ion-ios-checkmark-outline" ng-click="todoCtrl.todoFactory.complete(todo)"></a>

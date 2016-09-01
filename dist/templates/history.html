@@ -9,12 +9,14 @@
                 <tr>
                     <th>Task Name</th>
                     <th>Importance</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="todo in todos | filter:{complete: true, userId: todoCtrl.currentUser}">
                     <td ng-style="isComplete(todo)">{{todo.task}}</td>
                     <td ng-style="isComplete(todo)">{{todo.importance}}</td>
+                    <td ng-style="isComplete(todo)">{{todo.status}}</td>
                     <td class="utility-buttons" ng-hide="!currentUser">
                         <a class="todo-button-incomplete ion-ios-refresh-outline" ng-click="incomplete(todo)"></a>
                         <a class="todo-button-delete ion-ios-close-outline" ng-click="removeTodo(todo)"></a>

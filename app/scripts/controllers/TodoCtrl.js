@@ -6,6 +6,7 @@
 
         this.submitTodoForm = function(form) {
             form.complete = false;
+            form.status = 'active';
             form.userId = firebase.auth().currentUser.email;
             TodoFactory.createTodo(angular.copy(form), this.todo);
         };

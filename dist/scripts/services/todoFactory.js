@@ -21,6 +21,7 @@
 
         TodoFactory.complete = function(todo) {
             todo.complete = true;
+            todo.status = 'complete';
             todos.$save(todo);
         };
 

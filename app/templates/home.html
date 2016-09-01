@@ -26,10 +26,9 @@
                     <form id="signInForm" class="form-horizontal" role="form" name="signInForm">
                         <div style="margin-bottom: 25px" class="input-group" >
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="Email" type="email" class="form-control" name="email" value="" placeholder="email" required ng-model="email">
+                            <input id="Email" type="email" class="form-control" name="email" value="" placeholder="Enter email" required ng-model="email">
                         </div>
-                        <div ng-messages="signInForm.email.$error" role="alert">
-                            <p ng-message="required">Please enter an email!! </p>
+                        <div class="help-block" ng-messages="signInForm.email.$error" role="alert">
                             <p ng-message="email">Please enter a valid email address!!</p>
                         </div>
                         <div style="margin-bottom: 25px" class="input-group">
