@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>MarkItOff by htan712</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">MarkItOff</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/htan712/markoff" class="btn">View on GitHub</a>
+      <a href="https://github.com/htan712/markoff/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/htan712/markoff/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h2>
+<a id="markitoff" class="anchor" href="#markitoff" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>MarkITOFF</h2>
+
+<p>A todo app built with AngularJS &amp;&amp; Firebase user authentication.</p>
+
+<h2>
+<a id="bloc-frontend-project" class="anchor" href="#bloc-frontend-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bloc Frontend Project</h2>
+
+<p>A starter application for student projects in Bloc's <a href="https://www.bloc.io/frontend-development-bootcamp">Frontend Web Development Course</a>.</p>
+
+<h2>
+<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuration</h2>
+
+<p>Start by cloning the repository:</p>
+
+<pre><code>$ git clone https://github.com/Bloc/bloc-frontend-project-starter.git &lt;your-frontend-project-name&gt;
+</code></pre>
+
+<p>The project uses Grunt to run tasks in development. Thoroughly review our <a href="https://www.bloc.io/resources/using-grunt">resource on using Grunt</a> before using this application. It may also help to review <a href="https://www.bloc.io/resources/npm-and-package-json">our resource on NPM and <code>package.json</code> files</a>.</p>
+
+<p>Install the project dependencies by running:</p>
+
+<pre><code>$ npm install
+</code></pre>
+
+<h2>
+<a id="run-the-application" class="anchor" href="#run-the-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Run the Application</h2>
+
+<p>Run the application using the Gruntfile's <code>default</code> task:</p>
+
+<pre><code>$ grunt
+</code></pre>
+
+<p>The default task runs a simple server on port 3000. To view it in a any browser, go to <a href="http://localhost:3000">http://localhost:3000</a>.</p>
+
+<blockquote>
+<p>Note that unless the application is run <a href="#use-in-brackets-live-preview">via Live Preview in Brackets</a>, the browser will need to be refreshed to view the most recent changes.</p>
+</blockquote>
+
+<h3>
+<a id="using-without-angular" class="anchor" href="#using-without-angular" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using without Angular</h3>
+
+<p>By default, the application is configured to be used in a Single-Page Application (SPA) with AngularJS. If you're working on a project that doesn't use AngularJS, see the instructions below <a href="#configure-server-for-non-spas">for configuring the server to run in a non-SPA</a>.</p>
+
+<h2>
+<a id="use-in-brackets-live-preview" class="anchor" href="#use-in-brackets-live-preview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use in Brackets Live Preview</h2>
+
+<p>To use the application with the Live Preview functionality of the Brackets text editor, go to <strong>File &gt; Project Settings</strong> and add <code>http://localhost:3000</code> to the Base URL field.</p>
+
+<p><img src="https://bloc-global-assets.s3.amazonaws.com/images-frontend/screenshots/bloc-frontend-project-starter/live_preview_project_settings.png" alt="Screenshot of project settings URL in Brackets"></p>
+
+<p>The text in the application will not update on every keystroke, but changes will automatically push when you save the file.</p>
+
+<h2>
+<a id="directory-structure" class="anchor" href="#directory-structure" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Directory Structure</h2>
+
+<pre><code>├── Gruntfile.js
+├── LICENSE
+├── Procfile
+├── README.md
+├── app
+│   ├── assets
+│   │   └── images
+│   │       └── bloc-logo-white.png
+│   ├── pages
+│   │   └── index.html
+│   ├── scripts
+│   │   └── app.js
+│   ├── styles
+│   │   └── style.css
+│   └── templates
+│       └── home.html
+├── package.json
+└── server.js
+</code></pre>
+
+<p>All code, styles, markup, and assets should be saved to the <code>app</code> directory. Saving changes creates a new directory, <code>dist</code>, that holds final copies of the application content. <code>dist</code> is the directory the server uses to serve the content displayed by the browser. <strong>Do not edit files in <code>dist</code></strong> because it will reset changes to your work every time you save. Restrict all edits to files in the <code>app</code> directory.</p>
+
+<h3>
+<a id="assetsimages" class="anchor" href="#assetsimages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Assets/Images</h3>
+
+<p>Add images to the <code>app/assets/images</code> directory. To reference images in HTML, use the path <code>/assets/images/&lt;image file name&gt;.jpg</code>. For example, to include the image called <code>bloc-white-logo.png</code>, the path for the <code>src</code> attribute in the HTML would be:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">img</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>/assets/images/bloc-white-logo.png<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<p><strong>Note:</strong> A sample image has been added to <code>app/images</code>. To remove the image from the application, run the following command from the root of repo:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ rm -f app/assets/images/bloc-white-logo.png</pre></div>
+
+<p>To reference any other assets, like the music in Bloc Jams, use the path <code>assets/&lt;asset-type&gt;/&lt;asset-file&gt;</code>. The Gruntfile is pre-configured to handle assets in a subfolder with the <code>.mp3</code> extension.</p>
+
+<blockquote>
+<p>See lines 14 and 35 of <code>Gruntfile.js</code> for the accepted file extensions of assets.</p>
+</blockquote>
+
+<h3>
+<a id="difference-between-pages-and-templates" class="anchor" href="#difference-between-pages-and-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Difference between Pages and Templates</h3>
+
+<p>The <code>templates</code> directory should hold any HTML files used as templates in Angular states configured by UI Router. All other HTML files belong in the <code>pages</code> directory.</p>
+
+<h3>
+<a id="procfile" class="anchor" href="#procfile" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Procfile</h3>
+
+<p>The <code>Procfile</code> is a file for <a href="https://devcenter.heroku.com/articles/procfile">providing instructions to Heroku servers</a> that run after pushing new code to the repository. <strong>Do not change the contents of the Procfile</strong> or Heroku will throw an error when you attempt to visit your application.</p>
+
+<blockquote>
+<p>For more information about how to use Heroku with Bloc's frontend applications, see our <a href="https://www.bloc.io/resources/using-heroku-frontend">resource on using Heroku</a>.</p>
+</blockquote>
+
+<h2>
+<a id="configure-server-for-non-spas" class="anchor" href="#configure-server-for-non-spas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configure Server for Non-SPAs</h2>
+
+<p>By default, <code>bloc-frontend-project-starter</code> is configured to be used with SPAs. If you're not building a project with Angular, then modify <code>server.js</code> with the following:</p>
+
+<div class="highlight highlight-source-diff"><pre>var Hapi = require('hapi'),
+    path = require('path'),
+    port = process.env.PORT || 3000,
+    server = new Hapi.Server(port),
+    routes = {
+        css: {
+            method: 'GET',
+            path: '/styles/{path*}',
+            handler: createDirectoryRoute('styles')
+        },
+        js: {
+            method: 'GET',
+            path: '/scripts/{path*}',
+            handler: createDirectoryRoute('scripts')
+        },
+        assets: {
+            method: 'GET',
+            path: '/assets/{path*}',
+            handler: createDirectoryRoute('assets')
+        },
+        templates: {
+            method: 'GET',
+            path: '/templates/{path*}',
+            handler: createDirectoryRoute('templates')
+        },
+<span class="pl-md">-        spa: {</span>
+<span class="pl-mi1">+        staticPages: {</span>
+             method: 'GET',
+             path: '/{path*}',
+<span class="pl-md">-            handler: {</span>
+<span class="pl-md">-                file: path.join(__dirname, '/dist/index.html')</span>
+<span class="pl-md">-            }</span>
+<span class="pl-mi1">+            handler: createDirectoryRoute('/')</span>
+         }
+     };
+
+<span class="pl-md">-server.route([ routes.css, routes.js, routes.images, routes.templates, routes.spa ]);</span>
+<span class="pl-mi1">+server.route([ routes.css, routes.js, routes.images, routes.templates, routes.staticPages ]);</span>
+...</pre></div>
+
+<p>Optionally, delete the <code>templates</code> directory and all references to it in <code>Gruntfile.js</code> to remove unnecessary files (templates are only useful for SPAs). However, keeping them in the repository won't affect your application.</p>
+
+<h2>
+<a id="grunt-plugins" class="anchor" href="#grunt-plugins" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Grunt plugins</h2>
+
+<p>A list of the Grunt plugins in this application.</p>
+
+<h4>
+<a id="watch" class="anchor" href="#watch" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Watch</h4>
+
+<p><a href="https://github.com/gruntjs/grunt-contrib-watch">Grunt watch</a> watches for changes to file content and then executes Grunt tasks when a change is detected.</p>
+
+<h4>
+<a id="copy" class="anchor" href="#copy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Copy</h4>
+
+<p><a href="https://github.com/gruntjs/grunt-contrib-copy">Grunt copy</a> copies files from our development folders and puts them in the folder that will be served with the frontend of your application.</p>
+
+<h4>
+<a id="clean" class="anchor" href="#clean" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Clean</h4>
+
+<p><a href="https://github.com/gruntjs/grunt-contrib-clean">Grunt clean</a> "cleans" or removes all files in your distribution folder (<code>dist</code>) so that logic in your stylesheets, templates, or scripts isn't accidentally overridden by previous code in the directory.</p>
+
+<h4>
+<a id="hapi" class="anchor" href="#hapi" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Hapi</h4>
+
+<p><a href="https://github.com/athieriot/grunt-hapi">Grunt Hapi</a> runs a server using <a href="http://hapijs.com/"><code>HapiJS</code></a>. Happy is a Node web application framework with robust configuration options.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/htan712/markoff">MarkItOff</a> is maintained by <a href="https://github.com/htan712">htan712</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
