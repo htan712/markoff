@@ -9,13 +9,16 @@
     </div>
 -->
      <div class="container">
+<!--
         <div id="signedIn" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <div class="panel-title">Signed In successfully!</div>
+                    <div class="panel-title" ng-show="homeCtrl.currentUser">Signed In successfully!</div>
+                    <div class="panel-title" ng-show="!homeCtrl.currentUser">Whomp whomp</div>
                 </div>
             </div>
         </div>
+-->
         <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
             <div class="panel panel-info" >
                 <div class="panel-heading">
@@ -23,36 +26,35 @@
                 </div>
                 <div style="padding-top:30px" class="panel-body" >
                     <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-                    <form id="signInForm" class="form-horizontal" role="form" name="signInForm">
-                        <div style="margin-bottom: 25px" class="input-group" >
+                    <form id="signInForm" class="form-horizontal" role="form" name="signInForm" ng-model="signInForm">
+                        <div style="margin-bottom: 25px" class="input-group" ng-class="{'has-error': signInForm.email.$touched && signInForm.email.$invalid, 'has-success': signInForm.email.$touched && signInForm.email.$valid}">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                             <input id="Email" type="email" class="form-control" name="email" value="" placeholder="Enter email" required ng-model="email">
                         </div>
                         <div class="help-block" ng-messages="signInForm.email.$error" role="alert">
-                            <p ng-message="email">Please enter a valid email address!!</p>
+                            <p ng-message="email" style="margin-top: -5%">Please enter a valid email address!!</p>
                         </div>
-                        <div style="margin-bottom: 25px" class="input-group">
+                        
+                        <div style="margin-bottom: 25px" class="input-group" class="input-group" ng-class="{'has-error': signInForm.password.$touched && signInForm.password.$invalid, 'has-success': signInForm.password.$touched && signInForm.password.$valid}">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input id="Password" type="password" class="form-control" name="password" placeholder="password" required>
+                            <input id="Password" type="password" class="form-control" name="password" placeholder="password" required ng-model="password">
                         </div>
 
                         <div style="margin-top:10px" class="form-group">
                             <div class="col-sm-12 controls">
                                 <button id="btnLogin" href="#" class="btn btn-success"
-                                    onClick="$('#signedIn').fadeIn('slow');"
+                                    onClick="$('#signedIn').fadeIn('fast');"
                                     ng-disabled="signInForm.$invalid">
                                     Login  
                                 </button>
                                 <a id="btnLogout" href="#" class="btn btn-action pull-right hide">LogOut  </a>
-
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12 control">
                                 <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
                                     Don't have an account!
-                                    <a id="btnSignUp" 
-                                       onClick="$('#loginbox').fadeOut('slow', function() {
+                                    <a onClick="$('#loginbox').fadeOut('slow', function() {
                                                    $('#signupbox').fadeIn('slow')
                                                });">
                                         Sign Up Here
@@ -75,21 +77,21 @@
                         Sign In</a></div>
                 </div>
                 <div class="panel-body" >
-                    <form id="signUpForm" class="form-horizontal" role="form" name="signUpForm">
-                        <div class="form-group">
+                    <form id="signUpForm" class="form-horizontal" role="form" name="signUpForm" ng-model="signUpForm">
+                        <div class="form-group" ng-class="{'has-error': signUpForm.email.$touched && signUpForm.email.$invalid, 'has-success': signUpForm.email.$touched && signUpForm.email.$valid}">
                             <label class="col-md-3 control-label">Email</label>
-                            <div class="col-md-9" ng-class="{'has-error': signUpForm.email.$touched && signUpForm.email.$invalid, 'has-success': signUpForm.email.$touched && signUpForm.email.$valid}">
-                                <input id="Email" name="email" type="email" class="form-control" placeholder="Email Address" required>
+                            <div class="col-md-9" >
+                                <input id="Email" name="email" type="email" class="form-control" placeholder="Email Address" ng-model="email" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Password</label>
                             <div class="col-md-9" ng-class="{'has-error': signUpForm.password.$touched && signUpForm.password.$invalid, 'has-success': signUpForm.password.$touched && signUpForm.password.$valid}">
-                                <input id="Password" type="password" class="form-control" name="password" placeholder="Password" required ng-minlength="7" ng-maxlength="14">
-                                <p class="help-block" ng-show="signUpForm.$error.minlength">
+                                <input id="Password" type="password" class="form-control" name="password" ng-model="password" placeholder="Password" required ng-minlength="7" ng-maxlength="14">
+                                <p class="help-block" ng-show="signUpForm.password.$error.minlength">
                                     Must have at least 7 characters.
                                 </p>
-                                <p class="help-block" ng-show="signUpForm.$error.maxlength">
+                                <p class="help-block" ng-show="signUpForm.password.$error.maxlength">
                                     Password is too long.
                                 </p>
                             </div>
@@ -97,7 +99,7 @@
 
                         <div class="form-group">
                             <div class="col-md-offset-3 col-md-9">
-                                <button  id="btnSignUp" class="btn btn-info" > &nbsp Sign Up</button>
+                                <button  id="btnSignUp" class="btn btn-info" ng-disabled="signUpForm.$invalid"> &nbsp Sign Up</button>
                             </div>
                         </div>
                     </form>

@@ -15,7 +15,12 @@
             const pass = Password.value;
 
             const promise = auth.signInWithEmailAndPassword(email, pass);
-            promise.catch(e => console.log(e.message));
+            promise.catch(e => alert(e.message));
+            promise.then(function(userData){
+                alert("Signed In successful");
+            }, function(error) {
+                alert(error.message);
+            })
         });
 
         btnSignUp.addEventListener('click', e => {
@@ -25,11 +30,17 @@
             const auth = firebase.auth();
 
             const promise = auth.createUserWithEmailAndPassword(email, pass);
-            promise.catch(e => console.log(e.message));
+            promise.catch(e => alert(e.message));
+            promise.then(function(userData){
+                alert("User Created!");
+            }, function(error) {
+                alert(error.message);
+            })
         })
 
         btnLogout.addEventListener('click', e => {
             firebase.auth().signOut();
+            alert("Logout successful")
         })
 
         this.currentUser;

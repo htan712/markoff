@@ -57,7 +57,7 @@
                         <th></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody ng-hide="!todoCtrl.currentUser">
                     <!-- Looped todos with filter: complete:false and userId !-->
 
                     <tr class="fadeout" ng-repeat="todo in todoCtrl.todos | filter:{complete: false, userId: todoCtrl.currentUser}">
